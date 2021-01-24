@@ -38,7 +38,11 @@ h2
 
   .field
     = f.label :language
-  = f.text_field :language, autocomplete: "language"
+  = f.select :language, {'': 0, '中国語': 1, '英語': 2, 'スペイン語': 4, '日本語': 5}, autocomplete: "language"
+
+  .field
+    = f.label :sex
+  = f.select :sex, {'不明': 0, '男性': 1, '女性': 2, '適用不能': 9},  autocomplete: "sex"
 
   .field
     = f.label :profile
