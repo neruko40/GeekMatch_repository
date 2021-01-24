@@ -19,7 +19,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   def update
     super
-    @user = User.find(params[:id])
   end
 
   def destroy
