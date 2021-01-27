@@ -13,3 +13,41 @@
  *= require_tree .
  *= require_self
  */
+a {
+text-decoration: none;
+color: #222;
+}
+
+body {
+font-family: "Roboto", sans-serif;
+}
+
+.site-header {
+position: relative;
+background-color: #def7ff; }
+
+.site-header-wrapper {
+padding-top: 30px;
+padding-bottom: 30px; 
+}
+
+.logo {
+    font-size: 22px;
+    position:fixed;
+    top: 20px;
+    left: 60px;
+}
+
+ul {
+    display: inline-block;
+    position:fixed;
+    top: 8px;
+    right: 3px;
+}
+
+li {
+    float: left;
+    list-style: none;
+    padding-right: 7px;
+}
+
