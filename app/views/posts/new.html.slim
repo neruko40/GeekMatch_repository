@@ -1,0 +1,15 @@
+h1 新規投稿
+
+= form_with model: @post, url: '/posts', local: true do |f|
+    .form-group
+        = f.label :kind
+        = f.select :kind, {'アイデア': 0, '技術': 1}, autocomplete: "type"
+    .form-group
+        = f.label :title
+        = f.text_field :title, autocomplete: "title"
+    .form-group
+        = f.label :content
+        = f.text_area :content, autocomplete: "content"
+    = f.hidden_field :user_id, value: current_user.id
+    = f.submit '投稿'
+
