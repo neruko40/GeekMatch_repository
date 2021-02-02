@@ -1,2 +1,21 @@
-h1 Posts#index
-p Find me in app/views/posts/index.html.slim
+h1 投稿一覧
+
+= link_to '新規登録', new_post_path
+
+table
+    thead
+        tr
+            th 投稿者
+            th タイトル
+            th 登録日
+    tbody
+        - @posts.each do |post|
+            tr
+                td =post.user.name
+                td = link_to post.title, post_path(post)
+                td =post.created_at
+        
+
+            
+
+        

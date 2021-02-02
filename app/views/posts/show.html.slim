@@ -1,2 +1,26 @@
-h1 Posts#show
-p Find me in app/views/posts/show.html.slim
+h1 投稿詳細
+
+strong 投稿者
+.post 
+    =@post.user.name
+
+strong 投稿種別
+.post 
+    =@post.kind
+
+strong タイトル
+.post 
+    =@post.title
+
+strong 投稿内容
+.post 
+    =@post.content
+
+strong 投稿日
+.post 
+    =@post.created_at
+
+strong 更新日
+.post 
+    =@post.updated_at
+
