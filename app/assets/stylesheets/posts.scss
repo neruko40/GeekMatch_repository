@@ -1,3 +1,43 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// Variables
+$container-bg: #eee;
+$font-size-base: 14px;
+$line-height-computed: 1.4;
+$lines-to-show: 2;
+
+.link {
+    text-align: left;
+}
+
+.box {
+    width: 20%;
+    height: 250px;
+    border : solid 3px #000;
+    float: left;
+    margin-right: 30px;
+    margin-top: 20px;
+    
+    background-color:azure;
+        .post {
+            text-align: center;
+        }
+        
+        .date {
+            white-space: nowrap;
+        }
+        
+        .br {
+            margin-left: 3px;
+            text-align: center;
+            //word-wrap: break-word;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            -webkit-text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+}

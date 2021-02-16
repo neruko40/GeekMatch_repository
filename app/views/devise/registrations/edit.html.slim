@@ -41,20 +41,24 @@ h2
   i
     | プロフィール詳細
   .field
+    = f.label :image
+    = f.file_field :image
+  
+  .field
     = f.label :age
-  = f.number_field :age, :max=>"60"
+    = f.number_field :age, :max=>"60"
 
   .field
     = f.label :language
-  = f.select :language, {'': 0, '中国語': 1, '英語': 2, 'スペイン語': 4, '日本語': 5}, autocomplete: "language"
+    = f.select :language, {'': 0, '中国語': 1, '英語': 2, 'スペイン語': 4, '日本語': 5}, autocomplete: "language"
 
   .field
     = f.label :sex
-  = f.select :sex, {'不明': 0, '男性': 1, '女性': 2, '適用不能': 9},  autocomplete: "sex"
+    = f.select :sex, {'不明': 0, '男性': 1, '女性': 2, '適用不能': 9},  autocomplete: "sex"
 
   .field
     = f.label :profile
-  = f.text_area :profile, autocomplete: "profile", :size=>"60*10"
+    = f.text_area :profile, autocomplete: "profile", :size=>"60*10"
 
   .actions
     = f.submit "Update"

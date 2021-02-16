@@ -1,4 +1,6 @@
 h1 Users#show
+- if @user.image?
+    = image_tag @user.image.url
 p 名前：
     = @user.name
 

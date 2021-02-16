@@ -1,2 +1,12 @@
-h1 Posts#update
-p Find me in app/views/posts/update.html.slim
+h1 投稿編集
+
+= form_with model: @post, url:post_path,  local: true do |f|
+    .form-group
+        = f.label :title
+        = f.text_field :title
+    .form-group
+        = f.label :content
+        = f.text_area :content
+    = f.submit '更新する'
+
+=link_to '削除', post_path, method: :delete, data: { confirm: "この投稿を削除します。よろしいですか？"}

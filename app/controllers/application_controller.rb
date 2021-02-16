@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     def configure_permitted_parameters
       sign_in_params = [:name, :password]
       sign_up_params = [:name, :email, :password, :password_confirmation]
-      update_params = [:email, :password, :password_confirmation, :current_password, :age, :language, :sex, :profile]
+      update_params = [:email, :password, :password_confirmation, :current_password, :age, :language, :sex, :profile, :image]
 
       devise_parameter_sanitizer.permit :sign_in, keys: sign_in_params
       devise_parameter_sanitizer.permit :sign_up, keys: sign_up_params
