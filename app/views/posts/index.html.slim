@@ -12,7 +12,8 @@ h1 投稿一覧
         .date.post =post.created_at.to_s(:datetime_jp)
         .post 投稿内容
         .br =post.content
-        .post =link_to '編集', edit_post_path(post.id)
+        - if current_user.id == post.user_id
+            .post =link_to '編集', edit_post_path(post.id)
         
         
 

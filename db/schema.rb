@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_16_152324) do
+ActiveRecord::Schema.define(version: 2021_02_07_163203) do
 
   create_table "comments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "comment_content"
@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 2021_02_16_152324) do
     t.integer "language"
     t.decimal "age", precision: 3
     t.integer "sex"
-    t.string "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

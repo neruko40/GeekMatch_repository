@@ -1,9 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:show]
-
-  # def user
-  #   return User.find_by(id: self.user_id)
-  # end
+  before_action :authenticate_user!, only: [:show, :new, :create, :edit, :update, :delete]
 
   def index
     @posts = Post.all.order(created_at: :desc)
@@ -24,7 +20,7 @@ class PostsController < ApplicationController
   def create
     post = Post.new(post_params)
     if post.save
-      redirect_to root_path, notice: "投稿しました。"
+      redirect_to posts_path, notice: "投稿しました。"
     else
       redirect_to new_post_path, notice: "投稿に失敗しました…"
     end
