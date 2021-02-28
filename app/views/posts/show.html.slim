@@ -24,6 +24,9 @@ strong 更新日
 .post 
     =@post.updated_at.to_s(:datetime_jp)
 
+- if current_user.id == @post.user_id
+             =link_to '編集', edit_post_path(@post.id)
+
 h2 コメントをする
 
 = form_with(model:[@post, @comment], method: :post) do |f|

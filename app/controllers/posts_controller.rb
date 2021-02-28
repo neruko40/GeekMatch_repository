@@ -32,8 +32,11 @@ class PostsController < ApplicationController
 
   def update
     post = Post.find(params[:id])
-    post.update(post_params)
-    redirect_to post_url, notice: "投稿を更新しました。"
+    if post.update(post_params)
+      redirect_to post_url, notice: "投稿を更新しました。"
+    else
+      redirect_to post_url, notice: "編集に失敗しました。"
+    end
   end
 
   def destroy
