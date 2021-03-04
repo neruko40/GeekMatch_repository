@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_07_163203) do
+ActiveRecord::Schema.define(version: 2021_03_03_173230) do
 
   create_table "comments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "comment_content"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_02_07_163203) do
   end
 
   create_table "posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "kind", null: false
+    t.string "kind", null: false
     t.string "title", null: false
     t.text "content", null: false
     t.integer "user_id", null: false
@@ -41,9 +41,10 @@ ActiveRecord::Schema.define(version: 2021_02_07_163203) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name", null: false
     t.text "profile"
-    t.integer "language"
+    t.string "language"
     t.decimal "age", precision: 3
-    t.integer "sex"
+    t.string "sex"
+    t.string "skill"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

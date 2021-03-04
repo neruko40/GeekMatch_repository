@@ -4,42 +4,42 @@ html
     title
       | GeekMatch
     meta[name="viewport" content="width=device-width,initial-scale=1"]
+    meta[charset="utf-8"]
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = yield :css
   body
 
-    header.site-header
-      .site-header-wrapper
+    header
         - if user_signed_in?
           .logo
             strong
               = link_to GeekMatch, users_show_path(id: current_user.id)
-          nav
-            ul
-              li.nav-item
-                = link_to current_user.name, users_show_path(id: current_user.id)
-              li.nav-item
-                = link_to '新規投稿', new_post_path
-              li.nav-item
-                = link_to '投稿一覧', posts_path
-              li.nav-item
-                = link_to 'プロフィール変更', edit_user_registration_path
-              li.nav-item
-                = link_to 'ログアウト', destroy_user_session_path, method: :delete
+          ul
+            li.left
+              = link_to current_user.name, users_show_path(id: current_user.id)
+            li
+              = link_to '新規投稿', new_post_path
+            li
+              = link_to '投稿一覧', posts_path
+            li
+              = link_to 'プロフィール変更', edit_user_registration_path
+            li.right
+              = link_to 'ログアウト', destroy_user_session_path, method: :delete
         - else
           .logo
             strong
               = link_to GeekMatch, root_path
-          nav
-            ul
-              li.nav-item
-                = link_to 'サインアップ', new_user_registration_path
-              li.nav-item
-                = link_to 'ログイン', new_user_session_path
+          ul
+            li
+              = link_to 'サインアップ', new_user_registration_path
+            li
+              = link_to 'ログイン', new_user_session_path
     p.notice
       = notice
     p.alert
       = alert
-    = yield
+    .body
+      = yield

@@ -1,11 +1,14 @@
-h1 投稿編集
-
+- content_for :css do
+    = stylesheet_link_tag 'posts/post_edit'
+    h1 投稿編集
 = form_with model: @post, url:post_path,  local: true do |f|
     .form-group
         = f.label :title
+        br
         = f.text_field :title
     .form-group
         = f.label :content
+        br
         = f.text_area :content
     = f.submit '更新する'
 

@@ -1,3 +1,6 @@
+- content_for :css do
+    = stylesheet_link_tag 'posts/post_index'
+
 h1 投稿一覧
 .link
     = link_to '新規登録', new_post_path
