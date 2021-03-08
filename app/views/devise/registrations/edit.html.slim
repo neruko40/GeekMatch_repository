@@ -1,11 +1,15 @@
 - content_for :css do
-  = stylesheet_link_tag 'posts/post_edit'
+  = stylesheet_link_tag 'users/user_edit'
 
 = devise_error_messages
   h2
-    | Edit 
+    | ユーザー編集画面
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
   = render "devise/shared/error_messages", resource: resource
+
+  strong
+    アカウント情報
+
   .field
     = f.label :email
   = f.email_field :email, autofocus: true, autocomplete: "email"
@@ -13,7 +17,6 @@
     div
       | Currently waiting confirmation for: 
       = resource.unconfirmed_email
-
 
   .field
     = f.label :password, "変更後のパスワード"
@@ -27,11 +30,9 @@
         = @minimum_password_length
         | 桁以上で入力してください。
 
-
   .field
     = f.label :password_confirmation, "変更後のパスワード（確認用）"
   = f.password_field :password_confirmation, autocomplete: "new-password"
-
 
   .field
     = f.label :current_password
@@ -40,36 +41,73 @@
   br
   = f.password_field :current_password, autocomplete: "current-password"
 
-  
   br
-  i
-    | プロフィール詳細
-  
+  strong
+    プロフィール詳細
+    br
+  i.sep 自己紹介文
+  div
+    = f.label :profile 
+    br
+    = f.text_area :profile, autocomplete: "profile"
+
+  i.sep 基本情報
+  div
+    = f.label :name, "ユーザーネーム"
+    br
+    = f.text_field :name
+
+  .field 
+    = f.label :skill, "自分のスキル"
+    br
+    = f.text_field :skill
+
   .field
     = f.label :age, "年齢" 
     br
     = f.number_field :age, :max=>"60"
 
   .field
+    = f.label :job, "現在の職業"
+    br
+    = f.text_field :job
+
+  .field
     = f.label :language, "主に使用する言語" 
     br
-    = f.select :language, {'': 0, '中国語': 1, '英語': 2, 'スペイン語': 4, '日本語': 5}, autocomplete: "language"
+
+    = f.radio_button :language, "日本語", checked: true
+    = f.label "日本語" 
+    = f.radio_button :language, "英語"
+    = f.label "英語" 
+    = f.radio_button :language, "中国語"
+    = f.label "中国語" 
+    = f.radio_button :language, "フランス語"
+    = f.label "フランス語" 
+    = f.radio_button :language, "スペイン語"
+    = f.label "スペイン語" 
 
   .field
     = f.label :sex, "性別" 
     br
-    = f.select :sex, {'不明': 0, '男性': 1, '女性': 2, '適用不能': 9},  autocomplete: "sex"
+    = f.radio_button :sex, "未設定", checked: true
+    = f.label "未設定"  
+    = f.radio_button :sex, "男性"
+    = f.label "男性"
+    = f.radio_button :sex, "女性"
+    = f.label "女性"
+    = f.radio_button :sex, "その他"
+    = f.label "その他"            
 
-  .field
-    = f.label :profile 
-    br
-    = f.text_area :profile, autocomplete: "profile", :size=>"60*10"
+  
 
   .actions
     = f.submit "Update"
+
 h3
   | Cancel my account
 p
   | Unhappy? 
   = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
-= link_to "Back", :back
+.back
+  = link_to "前画面に戻る", :back

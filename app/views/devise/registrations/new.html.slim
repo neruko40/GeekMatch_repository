@@ -15,10 +15,10 @@ h2
   .field
     = f.label :password
     - if @minimum_password_length
-      em
+      strong
         | (
         = @minimum_password_length
-        |  characters minimum)
+        | 桁以上で入力してください。)
   br
   = f.password_field :password
   .field

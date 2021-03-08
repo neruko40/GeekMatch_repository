@@ -1,7 +1,14 @@
 - content_for :css do
     = stylesheet_link_tag 'posts/post_edit'
-    h1 投稿編集
+h1 投稿編集
 = form_with model: @post, url:post_path,  local: true do |f|
+    nobr
+        = f.radio_button :kind, "Idea"
+    = f.label :Idea
+    nobr.sep
+        = f.radio_button :kind, "Tech"
+    = f.label :Tech
+        
     .form-group
         = f.label :title
         br
@@ -11,5 +18,8 @@
         br
         = f.text_area :content
     = f.submit '更新する'
-
+br
 =link_to '削除', post_path, method: :delete, data: { confirm: "この投稿を削除します。よろしいですか？"}
+br
+br
+= link_to "前画面に戻る", :back

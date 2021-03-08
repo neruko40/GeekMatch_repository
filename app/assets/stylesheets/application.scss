@@ -15,10 +15,11 @@
 
  body {
     font-family: "Roboto", sans-serif;
+    margin:0px;
     }
 
 .body {
-    margin: 0px 15%;
+    margin: 0px 25%;
     padding: 0px;
 }
 
@@ -30,8 +31,10 @@ color: #222;
 
 //header部分
 header {
+    margin: 0px;
+    padding: 8px;
     display:flex;
-    background-color:beige;
+    background-color:rgb(29, 80, 173);
     height: 98px;
 
     .logo {

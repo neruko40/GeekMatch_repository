@@ -1,0 +1,17 @@
+- content_for :css do
+    = stylesheet_link_tag 'users/user_index'
+
+h1 ユーザー一覧
+
+- @users.each do |user|
+    .block
+        .use.url = link_to user.name, users_show_path(id: user.id) 
+        - if user.age.present? && user.job.present?
+            a.use = user.age
+            | 歳
+            a.use = user.job
+        - else
+            a.use = user.name
+
+= link_to "前画面に戻る", :back   
+         

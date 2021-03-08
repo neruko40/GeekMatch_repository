@@ -4,9 +4,11 @@ h1 新規投稿
 
 = form_with model: @post, url: '/posts', local: true do |f|
     .form-group
-        = f.radio_button :kind, "Idea", checked: true
+        nobr.idea
+            = f.radio_button :kind, "Idea", checked: true
         = f.label :Idea
-        = f.radio_button :kind, "Tech"
+        nobr.tech
+            = f.radio_button :kind, "Tech"
         = f.label :Tech
     .form-group
         = f.label :title
@@ -17,5 +19,7 @@ h1 新規投稿
         br
         = f.text_area :content, autocomplete: "content"
     = f.hidden_field :user_id, value: current_user.id
-    = f.submit '投稿'
+    = f.submit '投稿', class: "form-footer"
+
+= link_to "前画面に戻る", :back
 

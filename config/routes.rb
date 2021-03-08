@@ -38,5 +38,6 @@ Rails.application.routes.draw do
   get 'pages/:id', to: 'pages#show'
 
   get 'users/show', to: 'users#show'
+  get 'users_index', to: 'users#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

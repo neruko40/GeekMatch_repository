@@ -1,6 +1,60 @@
 - content_for :css do
     = stylesheet_link_tag 'users/user_show'
-h1 Users#show
-p 名前：
-    = @user.name
+h1 
+    = @user.name 
+    | さんの詳細ページ
+
+strong 自分のスキル
+br
+- if @user.skill.present?
+    .info = @user.skill
+    br
+- else
+    br
+
+strong 自己紹介文
+br
+- if @user.profile.present?
+    .content.info = simple_format(@user.profile)
+    br
+- else
+    br
+
+strong 現在の職業
+br
+- if @user.skill.present?
+    .info = @user.job
+    br
+- else
+    br
+
+strong 年齢
+br
+- if @user.age.present?
+    .info = @user.age
+    br
+- else
+    br
+
+strong 性別
+br
+- if @user.sex.present?
+    .info = @user.sex
+    br
+- else
+    br
+
+strong 主に話している言語
+br
+- if @user.language.present?
+    .info = @user.language
+    br
+- else
+    br
+-if current_user.id == @user.id
+    .back
+        = link_to "ユーザー情報編集画面へ", edit_user_registration_path
+
+.back  
+    = link_to "前画面に戻る", :back
 

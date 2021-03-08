@@ -2,19 +2,23 @@
     = stylesheet_link_tag 'posts/post_index'
 
 h1 投稿一覧
-.link
-    = link_to '新規登録', new_post_path
+= link_to '新規投稿作成へ', new_post_path, class: "btn"
 
 - @posts.each do |post|
     .box
-        .post 投稿者
-        .post =post.user.name
-        .post タイトル
-        .br =link_to post.title, post_path(post)
-        .post 投稿日時
-        .date.post =post.created_at.to_s(:datetime_jp)
-        .post 投稿内容
-        .br =post.content
+            nobr.post.link = link_to post.user.name, users_show_path(id: post.user.id)
+            a.time = time_ago_in_words(post.created_at)
+            br
+            .post = post.kind
+            - if post.user.age.present?
+                a.post = post.user.age 
+                | 歳
+            - if post.user.job.present?
+                a.post = post.user.job
+            hr
+            .post.short.link = link_to post.title, post_path(post)
+                        
+            
         
         
         

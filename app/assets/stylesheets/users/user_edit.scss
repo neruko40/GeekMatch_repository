@@ -12,6 +12,57 @@
  *
  *= require_self
  */
-input {
-    width: 900px;
-}
+
+ .edit_user {
+     padding-top: 8px;
+ }
+
+ .field {
+     padding-top: 8px;
+ }
+
+ #user_email {
+     width: 65%;
+ }
+
+ #user_password {
+     width: 25%;
+ }
+
+ #user_password_confirmation {
+     width: 25%; 
+ }
+
+ #user_current_password {
+     width: 25%;
+     margin-bottom: 50px;
+ }
+
+ .sep {
+     padding-top: 10px;
+ }
+
+ #user_name {
+     width: 50%
+ }
+
+ #user_skill {
+     width: 60%;
+ }
+
+ #user_age {
+     width: 10%;
+ }
+
+ #user_job {
+     width: 60%;
+ }
+
+ #user_profile {
+     width: 97%;
+     height: 240px;
+ }
+
+ .back {
+     padding-bottom: 30px;
+ }

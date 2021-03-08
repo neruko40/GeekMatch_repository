@@ -15,6 +15,7 @@ Rails.application.config.assets.precompile += %w(
     users/user_edit.css
     users/user_show.css
     users/user_new.css
+    users/user_index.css
     posts/post_show.css
     posts/post_index.css
     posts/post_edit.css

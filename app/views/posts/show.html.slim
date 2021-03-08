@@ -4,7 +4,7 @@ h1 投稿詳細
 
 strong 投稿者
 .post 
-    =@post.user.name
+    =link_to @post.user.name, users_show_path(id: @post.user.id)
 
 strong 投稿種別
 .post 
@@ -25,9 +25,11 @@ strong 投稿日
 strong 更新日
 .post 
     =@post.updated_at.to_s(:datetime_jp)
-
+br
 - if current_user.id == @post.user_id
              =link_to '編集', edit_post_path(@post.id)
+br
+= link_to "前画面に戻る", :back
 
 h2 コメントをする
 
