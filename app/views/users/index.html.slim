@@ -11,7 +11,8 @@ h1 ユーザー一覧
             | 歳
             a.use = user.job
         - else
-            a.use = user.name
+            .use
+                | 未設定
 
 = link_to "前画面に戻る", :back   
          

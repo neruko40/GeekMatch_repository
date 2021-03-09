@@ -2,6 +2,22 @@
 ja:
   activerecord:
     errors:
+      models:
+        user:
+          attributes:
+            name: 
+              blank: "が空白です。"
+              too_short: "が短過ぎます。(3〜20文字で入力してください)"
+              too_long: "が長過ぎます。(3〜20文字で入力してください)"
+              taken: "は、すでに使用されています"
+            email:
+              blank: "が空白です。"
+              taken: "は、すでに使用されています。"
+            password:
+              blank: "が空白です。"
+              too_short: "が短過ぎます。(6桁以上で入力してください。(一応、128桁まで入力できます！))"
+            password_confirmation:
+              confirmation: "が空白です。"
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
         restrict_dependent_destroy:
