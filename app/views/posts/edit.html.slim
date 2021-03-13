@@ -19,7 +19,7 @@ h1 投稿編集
         = f.text_area :content
     = f.submit '更新する'
 br
-=link_to '削除', post_path, method: :delete, data: { confirm: "この投稿を削除します。よろしいですか？"}
+=link_to '投稿を削除する', post_path, method: :delete, data: { confirm: "この投稿を削除します。よろしいですか？"}
 br
 br
 = link_to "前画面に戻る", :back
