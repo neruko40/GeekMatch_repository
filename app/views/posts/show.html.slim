@@ -16,7 +16,7 @@ strong タイトル
 
 strong 投稿内容
 .post
-    =@post.content
+    = simple_format(@post.content)
 
 strong 投稿日
 .post 
@@ -42,11 +42,11 @@ h2 コメントをする
 h2 コメント一覧
 
 - @comments.each do |comment|
-    .comment
-        = comment.comment_content 
-    br
-    - if current_user.id == comment.user_id
-        div
-            = link_to '削除', edit_post_comment_path(comment)
+    #comment_area
+        コメント： 
+        = comment.comment_content
+        - if current_user.id == comment.user_id
+            .comment_link
+                = link_to '削除', post_comment_path(@post, comment), data: { confirm: '削除しますか？' }, method: :delete
 
 
