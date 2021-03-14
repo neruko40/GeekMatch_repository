@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validates :name, presence: true, uniqueness: { case_sensitive: :false}, length: { minimum: 3, maximum: 20 }
 
   has_many :posts, dependent: :destroy
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   
   
