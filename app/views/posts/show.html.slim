@@ -31,6 +31,11 @@ br
 br
 = link_to "前画面に戻る", :back
 
+<div id="likes_buttons<%= @post.id %>">
+   = render partial: 'likes/like', locals: { post: @post, like: @like}
+</div>
+
+
 h2 コメントをする
 
 = form_with(model:[@post, @comment], method: :post) do |f|
