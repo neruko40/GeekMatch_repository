@@ -1,0 +1,14 @@
+- if user_signed_in?
+
+  - if @post.like_user(current_user.id).blank?
+    = link_to post_likes_path(@post.id), method: :post, remote: true do
+        = icon 'fas', 'heart fa-lg heart-gray'
+        i.likes_count = @likes_count
+  - else
+    = link_to post_like_path(post_id: @post.id, id: @post.likes[0].id), method: :delete, remote: true do
+        = icon 'fas', 'heart fa-lg heart-red'
+        i.likes_count = @likes_count
+
+        
+      
+ 

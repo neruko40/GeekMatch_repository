@@ -10,6 +10,7 @@ class PostsController < ApplicationController
     @comments = @post.comments #投稿詳細に関連付けてあるコメントを取得
     @comment = current_user.comments.new #投稿詳細画面でコメントの投稿を行うので、formのパラメータ用にCommentオブジェクトを取得
                                          #Comments.newではエラー
+    @likes_count = Like.where(post_id: @post.id).count
   end
 
   def new
